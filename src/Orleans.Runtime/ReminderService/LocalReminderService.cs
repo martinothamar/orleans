@@ -566,7 +566,7 @@ namespace Orleans.Runtime.ReminderService
             public async Task OnTimerTick(AverageTimeSpanStatistic tardinessStat, ILogger Logger)
             {
                 var before = DateTime.UtcNow;
-                var status = TickStatus.NewStruct(firstTickTime, period, before);
+                var status = new TickStatus(firstTickTime, period, before);
 
                 if (Logger.IsEnabled(LogLevel.Trace)) Logger.Trace("Triggering tick for {0}, status {1}, now {2}", this.ToString(), status, before);
 

@@ -12,12 +12,10 @@ namespace Orleans.Concurrency
     /// then considerable savings in memory usage and message throughput can be obtained by marking that byte[] argument as <c>Immutable</c>.
     /// </remarks>
     /// <typeparam name="T">Type of data to be wrapped by this Immutable</typeparam>
-    public struct Immutable<T>
+    public readonly struct Immutable<T>
     {
-        private readonly T value;
-
         /// <summary> Return reference to the original value stored in this Immutable wrapper. </summary>
-        public T Value { get { return value; } }
+        public T Value { get; }
 
         /// <summary>
         /// Constructor to wrap the specified data object in new Immutable wrapper.
@@ -25,7 +23,7 @@ namespace Orleans.Concurrency
         /// <param name="value">Value to be wrapped and marked as immutable.</param>
         public Immutable(T value)
         {
-            this.value = value;
+            this.Value = value;
         }
     }
 

@@ -375,7 +375,7 @@ namespace Orleans.Runtime.MembershipService
             return result;
         }
 
-        internal struct UpdateFaultCombo : IComparable
+        internal readonly struct UpdateFaultCombo : IComparable
         {
             public readonly int UpdateZone;
             public readonly int FaultZone;

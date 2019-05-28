@@ -11,7 +11,7 @@ namespace Orleans
     /// </summary>
     internal class InterfaceToImplementationMappingCache
     {
-        public struct Entry
+        public readonly struct Entry
         {
             public Entry(MethodInfo implementationMethod, MethodInfo interfaceMethod)
             {

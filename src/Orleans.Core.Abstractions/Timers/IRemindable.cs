@@ -38,37 +38,34 @@ namespace Orleans
         /// Thereafter, the app can set count = curCount
         /// </summary>
         [Serializable]
-        public struct TickStatus
+        public readonly struct TickStatus
         {
             /// <summary>
             /// The time at which the first tick of this reminder is due, or was triggered
             /// </summary>
-            public DateTime FirstTickTime { get; private set; }
+            public DateTime FirstTickTime { get; }
 
             /// <summary>
             /// The period of the reminder
             /// </summary>
-            public TimeSpan Period { get; private set; }
+            public TimeSpan Period { get; }
 
             /// <summary>
             /// The time on the runtime silo when the silo initiated the delivery of this tick.
             /// </summary>
-            public DateTime CurrentTickTime { get; private set; }
+            public DateTime CurrentTickTime { get; }
 
-            internal static TickStatus NewStruct(DateTime firstTickTime, TimeSpan period, DateTime timeStamp)
+            internal TickStatus(DateTime firstTickTime, TimeSpan period, DateTime timeStamp)
             {
-                return
-                    new TickStatus
-                        {
-                            FirstTickTime = firstTickTime,
-                            Period = period,
-                            CurrentTickTime = timeStamp
-                        };
+
+                FirstTickTime = firstTickTime;
+                Period = period;
+                CurrentTickTime = timeStamp;
             }
 
-            public override String ToString()
+            public override string ToString()
             {
-                return String.Format("<{0}, {1}, {2}>", FirstTickTime, Period, CurrentTickTime);
+                return string.Format("<{0}, {1}, {2}>", FirstTickTime, Period, CurrentTickTime);
             }
         }
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,7 +9,7 @@ using OutcomeState = Orleans.Runtime.GrainDirectory.GlobalSingleInstanceResponse
 
 namespace Orleans.Runtime.GrainDirectory 
 {
-    internal struct GlobalSingleInstanceResponseOutcome
+    internal readonly struct GlobalSingleInstanceResponseOutcome
     {
         public enum OutcomeState
         {
@@ -24,6 +24,7 @@ namespace Orleans.Runtime.GrainDirectory
         public readonly OutcomeState State;
         public readonly AddressAndTag RemoteOwnerAddress;
         public readonly string RemoteOwnerCluster;
+
         public GlobalSingleInstanceResponseOutcome(OutcomeState state, AddressAndTag remoteOwnerAddress, string remoteOwnerCluster)
         {
             this.State = state;

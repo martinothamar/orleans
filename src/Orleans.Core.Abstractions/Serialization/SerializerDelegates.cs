@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Orleans.Serialization
 {
@@ -27,7 +27,7 @@ namespace Orleans.Serialization
     /// <summary>
     /// Contains delegates for serialization.
     /// </summary>
-    public struct SerializerMethods
+    public readonly struct SerializerMethods
     {
         public SerializerMethods(DeepCopier deepCopy, Serializer serialize, Deserializer deserialize)
         {

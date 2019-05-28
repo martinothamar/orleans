@@ -121,7 +121,7 @@ namespace Orleans.Serialization
         /// <summary>
         /// Represents a named type for the purposes of serialization.
         /// </summary>
-        internal struct TypeKey
+        internal readonly struct TypeKey
         {
             public readonly int HashCode;
 
